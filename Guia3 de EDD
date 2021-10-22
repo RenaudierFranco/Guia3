@@ -1,0 +1,187 @@
+using System;
+
+namespace Guia_3
+{
+    class Program
+    {
+        //Ejercicio 1
+        public static void Signo()
+        {
+            int numero;
+
+            numero = Convert.ToInt32(Console.ReadLine());
+
+            //Condiciones.
+            if (numero > 0)
+                Console.WriteLine("1");
+
+            if (numero < 0)
+                Console.WriteLine("-1");
+
+            if (numero == 0)
+                Console.WriteLine("0");
+        }
+
+
+
+        //Ejercicio 2
+        public static void Menor(int num1, int num2)
+        {
+            num1 = Convert.ToInt32(Console.ReadLine());
+            num2 = Convert.ToInt32(Console.ReadLine());
+
+
+            //Condiciones.
+            if (num1 > num2)
+                Console.WriteLine("El " +num1+ " es mayor que " +num2+ ".");
+            else
+                Console.WriteLine("El " +num2+ " es mayor que " +num1+ ".");
+        }
+
+
+
+        //Ejercicio 3
+        public static void EsPrimo()
+        {
+            int numero;
+            bool rompe = false;
+            string cadnumero;
+
+            cadnumero = Console.ReadLine();
+            numero = Convert.ToInt32(cadnumero);
+
+            for (int i = 2; i < numero; i++)
+            {
+                if (numero % i == 0)
+                    rompe = true;
+                break;
+            }
+
+            if (rompe)
+                Console.WriteLine("{0} no es primo", numero);
+            else
+                Console.WriteLine("{0} es primo", numero);
+        }
+
+
+
+        //Ejercicio 4
+        //Preguntar por donde subo la foto.
+
+
+
+        //Ejercicio 5
+        public static void Calcula(int a, int b, int opcion)
+
+        {
+
+            switch (opcion)
+            {
+                case 1:
+                    Console.WriteLine("El resultado es: {0}", a + b);
+                    break;
+                case 2:
+                    Console.WriteLine("El resultado es: {0}", a - b);
+                    break;
+                case 3:
+                    Console.WriteLine("El resultado es: {0}", a * b);
+                    break;
+                case 4:
+                    Console.WriteLine("El resultado es: {0}", a / b);
+                    break;
+
+            }
+
+        }
+
+
+
+        //Ejercicio 6
+        public static void SumaCifras()
+        {
+            int numero, suma = 0;
+            int digito;
+            string strnumero;
+
+
+            for (int i = 0; i < 1; i++)
+            {
+                Console.WriteLine("----------------------");
+                Console.WriteLine("Ingrese un numero: ");
+                strnumero = Console.ReadLine();
+                int.TryParse(strnumero, out numero);
+
+                while (numero != 0)
+                {
+                    digito = numero % 10;
+                    suma = suma + digito;
+                    numero = numero / 10;
+                }
+
+                Console.WriteLine("----------------------");
+                Console.WriteLine("La suma de los digitos es: " + suma);
+                Console.WriteLine("----------------------");
+                suma = 0;
+            }
+        }
+
+
+
+        //Prueba de Codigos
+        static void Main(string[] args)
+        {
+            //Ejercicio 1
+            Console.WriteLine("Ingrese un numero: ");
+            Signo();
+
+
+
+            //Ejercicio 2
+            Console.WriteLine("");
+            Console.WriteLine("Ejercicio para saber cual numero es mayor.");
+            Console.WriteLine("Ingrese dos numeros: ");
+            Menor(1,2); //Se me dio por poner estos numeros, pero se pueden cambiar.
+
+
+
+            //Ejercicio 3
+            Console.WriteLine("");
+            Console.WriteLine("Ejercicio de numero primo.");
+            Console.WriteLine("Ingrese un numero para saber si es primo:");
+            EsPrimo();
+
+
+
+            //Ejercicio 4
+            //Preguntar por donde subo la foto.
+
+
+
+            //Ejercicio 5
+            Console.WriteLine("");
+            Console.WriteLine("Calculadora.");
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("Que opcion queres elegir?:");
+            Console.WriteLine("1: Suma");
+            Console.WriteLine("2: Resta");
+            Console.WriteLine("3: Multipicacion");
+            Console.WriteLine("4: Division");
+            Console.WriteLine("----------------------------");
+            
+            int opcion = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese el primer numero");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese el segundo numero");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("----------------------------");
+            Calcula(a, b, opcion);
+
+
+
+            //Ejercicio 6
+            Console.WriteLine("");
+            Console.WriteLine("Ejercicio de suma de cifras.");
+            SumaCifras();
+        }
+    }
+}
